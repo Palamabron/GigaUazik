@@ -8,6 +8,7 @@ int RMSP = 6;
 int RMF = A3;
 int RMB = A2;
 
+int SONARPIN = 7;
 
 void setup() 
 {
@@ -98,6 +99,7 @@ while (Serial.available() > 0)
 }
 
 
+
 String getValue(String data, char separator, int index)
 {
     int found = 0;
@@ -162,10 +164,30 @@ void rotate(int angle)
 }
 
 
-void sensor()
+long sensor()
 {
+  long duration, cm;
+  pinMode(pingPin, OUTPUT);
+  digitalWrite(pingPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(pingPin, HIGH);
+  delayMicroseconds(5);
+  digitalWrite(pingPin, LOW);
+
+  pinMode(pingPin, INPUT);
+  duration = pulseIn(pingPin, HIGH);
+
+  cm = microsecondsToCentimeters(duration);
+
+  return cm;
 }
 
+
+
+long microsecondsToCentimeters(long microseconds) {
+
+  return microseconds / 29 / 2;
+}
 
 void setVelocity(int speed)
 {
