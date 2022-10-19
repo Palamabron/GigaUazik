@@ -8,4 +8,6 @@
 
 ## https://www.waveshare.com/wiki/AlphaBot
 
+# Podzielcie się czujnikami, jak nie zrobicie do czwartku do 14.00 to odrygzę wam głowy :)
+
 
