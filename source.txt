@@ -167,15 +167,15 @@ void rotate(int angle)
 long sensor()
 {
   long duration, cm;
-  pinMode(pingPin, OUTPUT);
-  digitalWrite(pingPin, LOW);
+  pinMode(SONARPIN, OUTPUT);
+  digitalWrite(SONARPIN, LOW);
   delayMicroseconds(2);
-  digitalWrite(pingPin, HIGH);
+  digitalWrite(SONARPIN, HIGH);
   delayMicroseconds(5);
-  digitalWrite(pingPin, LOW);
+  digitalWrite(SONARPIN, LOW);
 
-  pinMode(pingPin, INPUT);
-  duration = pulseIn(pingPin, HIGH);
+  pinMode(SONARPIN, INPUT);
+  duration = pulseIn(SONARPIN, HIGH);
 
   cm = microsecondsToCentimeters(duration);
 
